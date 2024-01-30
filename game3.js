@@ -53,6 +53,6 @@
       heroesArray.forEach((hero) => {                                       // Går gjennom hver helt i "heroesArray" med "forEach" metoden.
         const heroElement = document.getElementById(hero.id);               // Henter DOM elementet for hver helt ved hjelp av heltenes unike id.
         heroElement.addEventListener("click", () => attackHero(hero));      // Legger til en event listener for "click" hendelsen til hver helt.
-        // Når helten klikkes på, vil "attackHero" funksjonen 
-        // bli kalt med den aktuelle helten som argument.
+                                                                            // Når helten klikkes på, vil "attackHero" funksjonen 
+                                                                            // bli kalt med den aktuelle helten som argument.
       });                                                                   // Avslutter "Foreach" løkken for heltene
