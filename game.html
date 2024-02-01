@@ -51,13 +51,13 @@
       </div>
 
       <!-- Bildecontainere for heroene -->
-      <div class="img-container healer">
+      <div class="img-container healer" id="0"> <!--Legger til en id for hver helt -->
         <img class="hero" src="assets/healer.png" />
       </div>
-      <div class="img-container archer">
+      <div class="img-container archer" id="1"> <!--Legger til en id for hver helt -->
         <img class="hero" src="assets/archer.png" />
       </div>
-      <div class="img-container warrior">
+      <div class="img-container warrior" id="2"> <!--Legger til en id for hver helt -->
         <img class="hero" src="assets/warrior.png" />
       </div>
 
@@ -68,8 +68,6 @@
         </div>
       </div>
     </div>
-
-
     <script>
       
       
@@ -80,10 +78,10 @@
         {
           id: 0,                    // ID for helt
           name: "Henriette Healer", // Nav på helt
-          maxHP: 400,             // Maks helse på helt
-          currentHP: 400,         // Nåværende helse på helt
-          damage: 100,            // Skade helt gjør på dragen
-          alive: true,            // Hvis helt er død, skal denne være false    
+          maxHP: 400,               // Maks helse på helt
+          currentHP: 400,           // Nåværende helse på helt
+          damage: 100,              // Skade helt gjør på dragen
+          alive: true,              // Hvis helt er død, skal denne være false    
         },
         {
           id: 1,                  // ID for helt 
@@ -144,15 +142,15 @@
         dragonObject.currentHP = 0;                             // Setter dragens helse til 0 Ifor å unngå negative verdier) og markerer dragen som død
         dragonObject.alive = false;                             // Markerer dragen som død
         alert(`${hero.name} har drept ${dragonObject.name}!`)   // Viser en melding om at helten har drept dragen
-        // dragonHealthTxt.textContent = `0 / 2000 HP`;          // Oppdaterer teksten som viser dragens helse for å reflektere endringene etter angrepet
+        dragonHealthTxt.textContent = `0 / 2000 HP`;            // Oppdaterer teksten som viser dragens helse for å reflektere endringene etter angrepet
         checkIfDragonDead();                                    // Sjekker om dragen er død etter angrepet
       } else {                                                  // Hvis dragen ikke er død, vis en melding om at helten har angrepet dragen (helsen er over 0)
         alert(`${hero.name} har gjort ${hero.damage} skade på ${dragonObject.name}!`);  // Viser en melding om at helten har angrepet dragen
         dragonHealthTxt.textContent =  `${ dragonObject.currentHP } / ${dragonObject.maxHP̋} HP ` ; // Oppdaterer teksten som viser dragens helse for å reflektere endringene etter angrepet
         dragonAttack();                              
-        }                                                             // Lukker ` attackHero ` funksjonen
-      }                                                               // Lukker if-en                                                      
-  });
+        }                                                       // Lukker ` attackHero ` funksjonen
+      }                                                         // Lukker if-en                                                      
+  });                                                           // Lukker `DOMContentLoaded` event listeneren
 
     heroesArray.forEach(hero => {                               // Legg til event listeners for hver helt. Går igjennom hvert `hero`-objekt i med `forEach`metoden` 
       const heroElement = document.getElementById(hero.name.toLowerCase().replace(` `, `-`)); // Henter DOM elementet for hver helt basert på heltenes navn. Forutsetter at ID-en for hver helt
@@ -215,14 +213,6 @@ document.addEventListener("DOMContentLoaded", (event) => {              // Legge
                                                                                           // med den relevante helten(representert) av "hero-objektet" vil angripe.  });
   });                                                                                     // Avslutter "forEach" løkken for heltene
 });                                                                                       // Avslutter "DOMContentLoaded" event listeneren
-
-    
-    
-    
-    
-    
-    
-    
     </script>
-  </body>
+  </body> 
 </html>
