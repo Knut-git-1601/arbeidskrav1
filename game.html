@@ -68,8 +68,9 @@
         </div>
       </div>
     </div>
+
+
     <script>
-      
       
       //Denne JS-koden er laget klar for deg. Den trenger du ikke endre på.
 
@@ -109,130 +110,154 @@
         alive: true,              // Hvis dragen er død, skal denne være false
       };
 
-      // Funksjonskrav 1 
-                                                                // Når brukeren trykker på en av heltene, skal helten angripe dragen
-                                                                // Det skal komme en alert hvor det står:
-                                                                // (Heltens name) har gjort (heltens damage) skade på (Dragens
-                                                                // name)!”
-                                                                // Dragens liv (currentHP) skal bli trukket med heltens damage, 
-                                                                // avhengig av hvilken helt den ble angrepet av.
-                                                                // Dragens currentHP blir oppdatert i arrayet
-
-                                                                // Når brukeren trykker på en av heltene, skal helten agripe 
-                                                                // dragen
-  document.addEventListener(`DOMContentLoaded`, (event) => {    // Legger til en event listener som venter på at alle dokumentet(HTML) skal
-                                                                // være ferdig lastet.Dette sikrer at all HTML er lastet inn før scriptet 
-                                                                // kjøres
-    
-                                                                        //Referanse til helseindikatorene i HTML
-  const dragonHealthTxT = document.querySelector(`.dragon-health-txt`); // Henter referansen til elementet som viser dragens nåværende helse,
-                                                                        // slik at teksten kan oppdateres senere når dragen tar skade
+                                                                                                      // Funksjonskrav 1 
+                                                                                                      // Når brukeren trykker på en av heltene, skal helten angripe dragen
+                                                                                                      // Det skal komme en alert hvor det står:
+                                                                                                      // (Heltens name) har gjort (heltens damage) skade på (Dragens name)!”
+                                                                                                      // Dragens liv (currentHP) skal bli trukket med heltens damage, 
+                                                                                                      // avhengig av hvilken helt den ble angrepet av.
+                                                                                                      // Dragens currentHP blir oppdatert i arrayet
+                                                                                                      // Når brukeren trykker på en av heltene, skal helten agripe 
+                                                                                                      // dragen
+  document.addEventListener(`DOMContentLoaded`, (event) => {                                          // Legger til en event listener som venter på at alle dokumentet(HTML) skal være ferdig lastet.Dette sikrer at all HTML er lastet inn før scriptet kjøres
+  const dragonHealthTxT = document.querySelector(`.dragon-health-txt`);                               // Henter referansen til elementet som viser dragens nåværende helse,slik at teksten kan oppdateres senere når dragen tar skade
         
-  function attackHero(hero) {                                   // Definerer en funksjon "attackHero" som håndterer logikken når en helt angriper dragen
+  function attackHero(hero) {                                                                         // Definerer en funksjon "attackHero" som håndterer logikken når en helt angriper dragen
     
-    if (!dragonObject.alive || !hero.alive) {                   // Sjekker om dragen eller helten er død. Hvis død, helten ikke angripe
-      alert(`${hero.name} kan ikke angripe fordi ${hero.alive ? `dragen` : `helten`} er død!`); // Viser en melding om at helten ikke kan angripe fordi 
-                                                                                                // enten dragen eller helten er død.
-      return;                                                                                   // Avslutter funksjonen tidlig ved å bruke `return`
-    }
-      dragonObject.currentHP -= hero.damage;                    // Beregner skade på dragen: Trekker skaden ("hero.damage") fra dragens nåværende helse ("dragonObject.currentHP")
+    if (!dragonObject.alive || !hero.alive) {                                                         // Sjekker om dragen eller helten er død. Hvis død, helten ikke angripe
+      alert(`${hero.name} kan ikke angripe fordi ${hero.alive ? `dragen` : `helten`} er død!`);       // Viser en melding om at helten ikke kan angripe fordi enten dragen eller helten er død.
+      return;                                                                                         // Avslutter funksjonen tidlig ved å bruke `return`
+    }                                                                                                 // Lukker if-en
 
-                                                                // Sjekker om dragen er død etter angrepet
-      if (dragonObject.currentHP <= 0) {                        // Sjekker om dragen er død. Hvis dragen er død, vil "dragonObject.currentHP" være 0 eller mindre
-        dragonObject.currentHP = 0;                             // Setter dragens helse til 0 Ifor å unngå negative verdier) og markerer dragen som død
-        dragonObject.alive = false;                             // Markerer dragen som død
-        alert(`${hero.name} har drept ${dragonObject.name}!`)   // Viser en melding om at helten har drept dragen
-        dragonHealthTxt.textContent = `0 / 2000 HP`;            // Oppdaterer teksten som viser dragens helse for å reflektere endringene etter angrepet
-        checkIfDragonDead();                                    // Sjekker om dragen er død etter angrepet
-      } else {                                                  // Hvis dragen ikke er død, vis en melding om at helten har angrepet dragen (helsen er over 0)
-        alert(`${hero.name} har gjort ${hero.damage} skade på ${dragonObject.name}!`);  // Viser en melding om at helten har angrepet dragen
-        dragonHealthTxt.textContent =  `${ dragonObject.currentHP } / ${dragonObject.maxHP̋} HP ` ; // Oppdaterer teksten som viser dragens helse for å reflektere endringene etter angrepet
-        dragonAttack();                              
-        }                                                       // Lukker ` attackHero ` funksjonen
-      }                                                         // Lukker if-en                                                      
-  });                                                           // Lukker `DOMContentLoaded` event listeneren
+      dragonObject.currentHP -= hero.damage;                                                          // Beregner skade på dragen: Trekker skaden ("hero.damage") fra dragens nåværende helse ("dragonObject.currentHP")
 
-    heroesArray.forEach(hero => {                               // Legg til event listeners for hver helt. Går igjennom hvert `hero`-objekt i med `forEach`metoden` 
-      const heroElement = document.getElementById(hero.name.toLowerCase().replace(` `, `-`)); // Henter DOM elementet for hver helt basert på heltenes navn. Forutsetter at ID-en for hver helt
-      if (heroElement) {                                        // Sjekker om elementet eksisterer. Hvis ikke, vil `heroElement` være `null` og `addEventListener` vil kaste en feil
-        heroElement.addEventListener(`click`, () => attackHero(hero));                          // Legg til en `click`-event listener til hver helt. Når en helt blir klikket på vil `attackHero`- funksjonen
-      }                                                                                         // bli kalt med den relevante helten som argument
-    });                                                                                         // Lukker `forEach`løkken
+    if (dragonObject.currentHP <= 0) {                                                                // Sjekker om dragen er død. Hvis dragen er død, vil "dragonObject.currentHP" være 0 eller mindre
+          dragonObject.currentHP = 0;                                                                 // Setter dragens helse til 0 Ifor å unngå negative verdier) og markerer dragen som død
+          dragonObject.alive = false;                                                                 // Markerer dragen som død
+          alert(`${hero.name} har drept ${dragonObject.name}!`)                                       // Viser en melding om at helten har drept dragen
+          dragonHealthTxt.textContent = `0 / 2000 HP`;                                                // Oppdaterer teksten som viser dragens helse for å reflektere endringene etter angrepet
+          checkIfDragonDead();                                                                        // Sjekker om dragen er død etter angrepet
+  } else {                                                                                            // Hvis dragen ikke er død, vis en melding om at helten har angrepet dragen (helsen er over 0)
+          alert(`${hero.name} har gjort ${hero.damage} skade på ${dragonObject.name}!`);              // Viser en melding om at helten har angrepet dragen
+          dragonHealthTxt.textContent =  `${ dragonObject.currentHP } / ${dragonObject.maxHP̋} HP ` ;  // Oppdaterer teksten som viser dragens helse for å reflektere endringene etter angrepet
+          dragonAttack();                              
+        }                                                                                             // Lukker if-else - blokken
+      }                                                                                               // Lukker "attackHero" funksjonen                                                     
+  });                                                                                              // Lukker "DOMContentLoaded" event listeneren
 
-    function checkIfDragonDead() {                                // Definerer en funksjon som sjekker om dragen er død
-      if (!dragonObject.alive) {                                  // Sjekker om dragen er død etter angrepet
-        alert(`Gratulerer! Dere har vunnet!`);                    // Viser en melding om at helten har drept dragen
-  }                                                               // Lukker `checkIfDragonDead` funksjonen
-}  // Lukker `DOMContentLoaded - event listeneren
+    heroesArray.forEach(hero => {                                                                     // Går gjennom hvert "hero" objekt i "heroesArray" med "forEach" metoden
+      const heroElement = document.getElementById(hero.name.toLowerCase().replace(` `, `-`));         // Henter DOM elementet for hver helt basert på heltens navn. Dette er gjort ved å bruke heltens navn til å finne elementet i HTML
+      if (heroElement) {                                                                              // Sjekker om elementet faktisk finnes før det legges til en event listener
+        heroElement.addEventListener(`click`, () => attackHero(hero));                                // Legger til en event listener for "click" hendelsen til hver helt. Når helten klikkes på, vil "attackHero" funksjonen bli kalt med den relevante helten som argument
+      }                                                                                               // Lukker if-setningen
+    });                                                                                               // Lukker "forEach" løkken for heltene
+
+    function checkIfDragonDead() {                                                                    // Definerer en funksjon som sjekker om dragen er død
+      if (!dragonObject.alive) {                                                                      // Sjekker om dragen er død etter angrepet
+        alert(`Gratulerer! Dere har vunnet!`);                                                        // Viser en melding om at helten har drept dragen
+  }                                                                                                   // Lukker `checkIfDragonDead` funksjonen
+}                                                                                                  // Lukker `DOMContentLoaded - event listeneren
     
-    //Funksjonskrav 2
+                                                                                                      // Funksjonskrav 2
 
-// Dragen skal gjøre et motangrep umiddelbart når den blir angrepet av en helt.
-// - Dragen skal angripe en tilfeldig helt. Det er altså 1⁄3 sjanse for hver helt å bli angrepet.
-// Dragen kan kun angripe helter som er i live, “alive”-propertyen for helten må være true.
-// Det skal komme en ny alert hvor det står:
-//“(Dragens name) har angrepet (Heltens name)!”
-//- Helten som ble angrepet sitt liv (currentHP) skal bli trukket med dragens damage.
-//- Heltens currentHP blir oppdatert i arrayet
-// Påkrevde teknikker: alert, function, onclick/eventListener, manipulering av array-objekter 2
+                                                                                                      // Dragen skal gjøre et motangrep umiddelbart når den blir angrepet av en helt.
+                                                                                                      // - Dragen skal angripe en tilfeldig helt. Det er altså 1⁄3 sjanse for hver helt å bli angrepet.
+                                                                                                      // Dragen kan kun angripe helter som er i live, “alive”-propertyen for helten må være true.
+                                                                                                      // Det skal komme en ny alert hvor det står:
+                                                                                                      // “(Dragens name) har angrepet (Heltens name)!”
+                                                                                                      //- Helten som ble angrepet sitt liv (currentHP) skal bli trukket med dragens damage.
+                                                                                                      //- Heltens currentHP blir oppdatert i arrayet
+                                                                                                      // Påkrevde teknikker: alert, function, onclick/eventListener, manipulering av array-objekter 2
 
-document.addEventListener("DOMContentLoaded", (event) => {              // Legger til en event listener som venter på at hele dokumentet (HTML) skal være ferdig lastet
-  const dragonHealthTxt = document.querySelector(".dragon-health-txt"); // Henter referansen til elementet som viser dragens nåværende helse, slik at teksten kan oppdateres senere når dragen tar skade
-  const updateHeroHealthTxt = (hero) => {                               // Definerer en arrow function "updateHeroHealthTxt" som tar en "hero" object som argument. Denne funksjonen
-    document.querySelector(                                             // Setter innholdet av det valgte elementet (som viser heltenes helse) til å vise heltenes nåværende helse sammenlignet med maks helse
-      `#${hero.id}-health-txt`).textContent = `${hero.currentHP} / ${hero.maxHP} HP`;   // Setter innholdet av det valgte elementet (som viser heltenes helse) til å vise heltenes nåværende helse sammenlignet med maks helse
-  };                                                                                    // Lukker definisjonen av "updateHeroHealthTxt" funksjonen
+  //document.addEventListener("DOMContentLoaded", (event) => {                                        // Legger til en event listener som venter på at hele dokumentet (HTML) skal være ferdig lastet
+  //const dragonHealthTxt = document.querySelector(".dragon-health-txt");                             // Henter referansen til elementet som viser dragens nåværende helse, slik at teksten kan oppdateres senere når dragen tar skade
+ 
+  //const updateHeroHealthTxt = (hero) => {                                                                      // Definerer en arrow function "updateHeroHealthTxt" som tar en "hero" object som argument. Denne funksjonen
+    //document.querySelector(`#${hero.id}-health-txt`).textContent = `${hero.currentHP} / ${hero.maxHP} HP`;     // Setter innholdet av det valgte elementet (som viser heltenes helse) til å vise heltenes nåværende helse sammenlignet med maks helse
+  //};                                                                                                           // Avslutter "updateHeroHealthTxt" funksjonen
+                                                                                                      
+  // const updateHeroHealthTxt = (hero) => {                                                             // Definerer en arrow funksjon "updateHeroHealthTxt" som tar en "hero" som argument. Denne funksjonen vil være ansvarlig for å oppdatere heltenes helsevisning i brukergrensesnittet.
+  // const heroHealthId = hero.name.toLowerCase().replace(" ", "-") + "-health-txt";                     // Konverterer heltenes navn til en format som passer ID-ene i HTML
+  // const heroHealthElement = document.getElementById(heroHealthId);                                    // Henter referansen til elementet som viser heltenes nåværende helse, slik at teksten kan oppdateres senere når helten tar skade
+  // if (heroHealthElement) {                                                                            // Sjekker om elementet faktisk finnes før det oppdateres
+    // heroHealthElement.textContent = `${hero.currentHP} / ${hero.maxHP} HP`;                           // Setter innholdet av det valgte elementet (som viser heltenes helse) til å vise heltenes nåværende helse sammenlignet med maks helse
+  // }                                                                                                   // Avslutter if setningen
+// };                                                                                                    // Avslutter "updateHeroHealthTxt" funksjonen
 
-  function dragonAttack() {                                             // Definerer en funksjon "dragonAttack" som håndterer logikken for dragens angrep
-    const aliveHeroes = heroesArray.filter((hero) => hero.alive);       // Lager en ny array "aliveHeroes" som inneholder alle helter som er i live
-    if (aliveHeroes.length > 0) {                                                         // Sjekker om det finnes helter som fortsatt er i live før dragens angrep utføres
-      const targetHero = aliveHeroes[Math.floor(Math.random() * aliveHeroes.length)];     // Velger en tilfeldig helt fra de levende heltene. Bruker "Math.random" for å generere et tilfeldig tall mellom 0 og 1, og multipliserer dette med lengden på "aliveHeroes" gir en indeks for en tilfeldig hel
-      targetHero.currentHP -= dragonObject.damage;                                        // Trekk skade fra helten dragen gjør ("dragonObject.damage") fra den valgte heltens nåværende helse ("targetHero.currentHP")
-      if (targetHero.currentHP <= 0) {                                                    // Sjekker om helten er død. Hvis helten er død, vil "targetHero.currentHP" være 0 eller mindre
-        targetHero.currentHP = 0;                                                         // Setter heltenes nåværende helse til 0 for å forhindre negative helseverdier.
-        targetHero.alive = false;                                                         // Markerer helten som død ved å sette "alive" propertyen til "false"
-        alert(`${dragonObject.name} har angrepet og drept ${targetHero.name}!`);          // Viser en "alert"-melding om at dragen har angrepet og drept helten
-      } else {                                                                            // Hvis helten ikke er død, vis en melding om at dragen har angrepet helten (helsen er over 0)
-        alert(`${dragonObject.name} har angrepet ${targetHero.name}!`);                   // Viser en "alert"-melding om at dragen har angrepet helten
-      }                                                                                   // Lukker if-else - blokken
-      updateHeroHealthTxt(targetHero);                                                    // Kaller "updateHeroHealthTxt" funksjonen for å oppdatere brukergrensesnittet med den angrepne heltens oppdaterte helsetall
-      if (aliveHeroes.length === 1 && !targetHero.alive) {                                // Sjekker om dette var den siste levende helten. Hvis "aliveHeroes" kun inneholdt en helt og den helten er nå død, er spillet over.
-        alert("Game over! Alle helter er døde.");                                         // Viser en "alert" melding om at alle helter er døde og spillet er over
-      }                                                                                   // Avslutter if-blokken
-    }                                                                                     // Avslutter "dragonAttack" funksjonen
-  }                                                                                       // Avslutter "dragonAttack" funksjonen
-
-  function attackHero(hero) {                                                             // Definerer en funksjon "attackHero" som håndterer logikken når en helt angriper dragen
-    if (dragonObject.alive ) {                                                             // Sjekker om dragen fortsatt er i live. Hvis dragen er død, skal den ikke utføre motangrep.
-      dragonAttack();                                                                     // Kaller "dragonAttack" funksjonen for å utføre et motangrep umiddelbart etter heltenes angrep
-    }                                                                                     // Avslutter if-blokken
-  }                                                                                       // Avslutter "Attack "attackHero funksjonen
-  heroesArray.forEach((hero) => {                                                         // Går gjennom hvert "hero" objekt i "heroesArray2 med "foreEach" metoden
-    const heroElement = document.getElementById(hero.id);                                 // Henter DOM elementet for hver helt basert på heltens id "hero.id"
-    heroElement.addEventListener("click", () => attackHero(hero));                        // Når klikk på "heroElement" vil funksjonen "attackhero" bli kalt
-                                                                                          // med den relevante helten(representert) av "hero-objektet" vil angripe.  });
-  });                                                                                     // Avslutter "forEach" løkken for heltene
-});                                                                                       // Avslutter "DOMContentLoaded" event listeneren
-    
-//Funksjonskrav 3
-// En helt er død. Dersom en helt sin currentHP blir 0 eller mindre, skal helten(e) forsvinne
-// fra nettleseren og "alive" propertyen skall bli false. Denne helten er nå død, og dragen
-// vil ikke vurdere å angripe denne helten. Dersom alle heltene er døde, skal spillet være over.
-
-  document.addEventListener("DOMContentLoaded", (event) => {              // Legger til en event listener som venter på at hele dokumentet (HTML) 
-                                                                          // skal være ferdig lastet før scriptet kjøres
+const updateHeroHealthTxt = (hero) => {                                                                   // Definerer en arrow funksjon "updateHeroHealthTxt" som tar en "hero" som argument. Denne funksjonen vil være ansvarlig for å oppdatere heltenes helsevisning i brukergrensesnittet.
+  let heroHealthId;                                                                                       // Deklarerer en variabel "heroHealthId" som vil inneholde IDen til elementet som viser heltenes helse
   
-  const dragonHealthTxt = document.querySelector(".dragon-health-txt");   // Henter referansen til elementet som viser dragens nåværende helse, slik at teksten kan 
-                                                                          // oppdateres senere når dragen tar skade
+  switch (hero.name) {                                                                                    // Bruker en "switch" setning for å velge riktig ID basert på heltens navn
+    case "Henriette Healer":                                                                              // Hvis heltens navn er "Henriette Healer"
+      heroHealthId = "healer-health-txt";                                                                 // Setter "heroHealthId" til "healer-health-txt"
+      break;                                                                                              // Avslutter "case" setningen
+    case "Ariana Archer":                                                                                 // Hvis heltens navn er "Ariana Archer"
+      heroHealthId = "archer-health-txt";                                                                 // Setter "heroHealthId" til "archer-health-txt"
+      break;                                                                                              // Avslutter "case" setningen
+    case "Wyona Warrior":                                                                                 // Hvis heltens navn er "Wyona Warrior"
+      heroHealthId = "warrior-health-txt";                                                                // Setter "heroHealthId" til "warrior-health-txt"
+      break;                                                                                              // Avslutter "case" setningen
+    default:                                                                                              // Hvis heltens navn ikke er noen av de ovennevnte
+      console.error("Ukjent helt: " + hero.name);                                                         // Skriver en feilmelding til konsollen for å indikere at heltens navn ikke ble gjenkjent
+      return;                                                                                             // Avslutter funksjonen tidlig hvis heltens navn ikke ble gjenkjent
+  }                                                                                                       // Avslutter "switch" setningen
+
+  const heroHealthElement = document.getElementById(heroHealthId);
+  if (heroHealthElement) {
+    heroHealthElement.textContent = `${hero.currentHP} / ${hero.maxHP} HP`;
+  }
+};
+
+  function dragonAttack() {                                                                           // Definerer en funksjon "dragonAttack" som håndterer logikken for dragens angrep
+    const aliveHeroes = heroesArray.filter((hero) => hero.alive);                                     // Lager en ny array "aliveHeroes" som inneholder alle helter som er i live
+    if (aliveHeroes.length > 0) {                                                                     // Sjekker om det finnes helter som fortsatt er i live før dragens angrep utføres
+      const targetHero = aliveHeroes[Math.floor(Math.random() * aliveHeroes.length)];                 // Velger en tilfeldig helt fra de levende heltene. Bruker "Math.random" for å generere et tilfeldig tall mellom 0 og 1, og multipliserer dette med lengden på "aliveHeroes" gir en indeks for en tilfeldig hel
+      targetHero.currentHP -= dragonObject.damage;                                                    // Trekk skade fra helten dragen gjør ("dragonObject.damage") fra den valgte heltens nåværende helse ("targetHero.currentHP")
+      if (targetHero.currentHP <= 0) {                                                                // Sjekker om helten er død. Hvis helten er død, vil "targetHero.currentHP" være 0 eller mindre
+        targetHero.currentHP = 0;                                                                     // Setter heltenes nåværende helse til 0 for å forhindre negative helseverdier.
+        targetHero.alive = false;                                                                     // Markerer helten som død ved å sette "alive" propertyen til "false"
+        alert(`${dragonObject.name} har angrepet og drept ${targetHero.name}!`);                      // Viser en "alert"-melding om at dragen har angrepet og drept helten
+      } else {                                                                                        // Hvis helten ikke er død, vis en melding om at dragen har angrepet helten (helsen er over 0)
+        alert(`${dragonObject.name} har angrepet ${targetHero.name}!`);                               // Viser en "alert"-melding om at dragen har angrepet helten
+      }                                                                                               // Lukker if-else - blokken
+      updateHeroHealthTxt(targetHero);                                                                // Kaller "updateHeroHealthTxt" funksjonen for å oppdatere brukergrensesnittet med den angrepne heltens oppdaterte helsetall
+      if (aliveHeroes.length === 1 && !targetHero.alive) {                                            // Sjekker om dette var den siste levende helten. Hvis "aliveHeroes" kun inneholdt en helt og den helten er nå død, er spillet over.
+        alert("Game over! Alle helter er døde.");                                                     // Viser en "alert" melding om at alle helter er døde og spillet er over
+      }                                                                                               // Avslutter if-blokken
+    }                                                                                                 // Avslutter if-blokken
+  }                                                                                                   // Avslutter "dragonAttack" funksjonen                                                                                                   
+
+  function attackHero(hero) {                                                                         // Definerer en funksjon "attackHero" som håndterer logikken når en helt angriper dragen
+    if (dragonObject.alive ) {                                                                        // Sjekker om dragen fortsatt er i live. Hvis dragen er død, skal den ikke utføre motangrep.
+      dragonAttack();                                                                                 // Kaller "dragonAttack" funksjonen for å utføre et motangrep umiddelbart etter heltenes angrep
+    }                                                                                                 // Avslutter if-blokken
+  }                                                                                                   // Avslutter "Attack "attackHero funksjonen
+  heroesArray.forEach((hero) => {                                                                     // Går gjennom hvert "hero" objekt i "heroesArray2 med "foreEach" metoden
+    const heroElement = document.getElementById(hero.id);                                             // Henter DOM elementet for hver helt basert på heltens id "hero.id"
+    heroElement.addEventListener("click", () => attackHero(hero));                                    // Når klikk på "heroElement" vil funksjonen "attackhero" bli kalt
+                                                                                                      // med den relevante helten(representert) av "hero-objektet" vil angripe.  });
+  });                                                                                                 // Avslutter "forEach" løkken for heltene
+//});                                                                                                 // Avslutter "DOMContentLoaded" event listeneren
     
-  const updateHeroHealthTxt = (hero) => {                                 // Definerer en arrow funksjon "updateHeroHealthTxt" som tar en "hero" som argument.
-                                                                          // Denne funksjonen vil være ansvarlig for å oppdatere heltenes helsevisning i brukergrensesnittet.
-  document.querySelector(`${hero.id}healer-health-txt`).textContent = `${hero.currentHP} / ${hero.maxHP} HP`;
-    };                                                                    // Setter innholdet av det valgte elementet (som viser heltenes 
-                                                                          // helse) til å vise heltenes nåværende helse sammenlignet med maks helse
-  const removeDeadHero = (hero) => {                                      // Definerer en ny funksjon "removeDeadHero", som også tar en "hero" som argument. 
-                                                                          // Denne funksjonen vil fjerne den visuelle representasjonen av helten fra nettleseren når helten er død.
-  const heroElement = document.getElementById(hero.id);                   // Henter HTML elementet som representer helten, basert på heltenes unike id.
+                                                                                                      // Funksjonskrav 3
+                                                                                                      // En helt er død. Dersom en helt sin currentHP blir 0 eller mindre, skal helten(e) forsvinne
+                                                                                                      // fra nettleseren og "alive" propertyen skall bli false. Denne helten er nå død, og dragen
+                                                                                                      // vil ikke vurdere å angripe denne helten. Dersom alle heltene er døde, skal spillet være over.
+
+  //document.addEventListener("DOMContentLoaded", (event) => {                                        // Legger til en event listener som venter på at hele dokumentet (HTML) 
+                                                                                                      // skal være ferdig lastet før scriptet kjøres
+  
+  //const dragonHealthTxt = document.querySelector(".dragon-health-txt");                             // Henter referansen til elementet som viser dragens nåværende helse, slik at teksten kan 
+                                                                                                      // oppdateres senere når dragen tar skade
+    
+  //const updateHeroHealthTxt = (hero) => {                                                           // Definerer en arrow funksjon "updateHeroHealthTxt" som tar en "hero" som argument.
+                                                                                                      // Denne funksjonen vil være ansvarlig for å oppdatere heltenes helsevisning i brukergrensesnittet.
+  //document.querySelector(`${hero.id}healer-health-txt`).textContent = `${hero.currentHP} / ${hero.maxHP} HP`;
+    //};                                                                                              // Setter innholdet av det valgte elementet (som viser heltenes 
+                                                                                                      // helse) til å vise heltenes nåværende helse sammenlignet med maks helse
+  const removeDeadHero = (hero) => {                                                                  // Definerer en ny funksjon "removeDeadHero", som også tar en "hero" som argument. 
+                                                                                                      // Denne funksjonen vil fjerne den visuelle representasjonen av helten fra nettleseren når helten er død.
+  const heroElement = document.getElementById(hero.id);                                               // Henter HTML elementet som representer helten, basert på heltenes unike id.
    
   if (heroElement) {                                                      // Sjekker om elementet faktisk finnes før det fjernes fra DOM (Document Object Model)
       heroElement.remove();                                               // Dette hindrer feil hvis elementet allerede er fjernet eller ikke finnes                        
@@ -243,9 +268,8 @@ document.addEventListener("DOMContentLoaded", (event) => {              // Legge
     const dragonDamage = 20;                                              // Setter "dragonDamage" til 20. Dette er den skaden som dragen vil gjøre på helten
   
     heroesArray.forEach(hero => {                                          // Looper igjennom helgene. Går igjennom hver helt i arrayet "herosArray". For hver "hero" i arrayet, utføres koden innenfor "{}"
-    if (hero.alive) {                                                     // Sjekker om helten lever. Utfører angrepet bare hvis "hero.alive" er "true" (det vil si at helten fortsatt er i live)
-      
-      hero.currentHP -= dragonDamage;                                     // Beregner skade på helten: Trekker skaden ("dragonDamage") fra heltenes nåværende helse ("hero.currentHP")
+      if (hero.alive) {                                                     // Sjekker om helten lever. Utfører angrepet bare hvis "hero.alive" er "true" (det vil si at helten fortsatt er i live)
+        hero.currentHP -= dragonDamage;                                     // Beregner skade på helten: Trekker skaden ("dragonDamage") fra heltenes nåværende helse ("hero.currentHP")
       if ((hero.currentHP) <= 0) {                                        // Sjekker om helten er død. Hvis helten er død, vil "hero.currentHP" være 0 eller mindre
         hero.currentHP = 0;                                               // Markerer helten som død. Setter heltenes "currentHP" til 0 for å unngå negative verdier.
         hero.alive = false;                                               // "Alive" til false for å indikere at helten er død.
@@ -257,14 +281,17 @@ document.addEventListener("DOMContentLoaded", (event) => {              // Legge
     const heroElement = document.getElementById(hero.id);                 // Henter DOM elementet for helten basert på heltenes unike id
     if (heroElement) {                                                    // Sjekker om elementet faktisk finnes før det fjernes fra DOM (Document Object Model)
         heroElement.style.display = 'none';                               // Gjemmer elementet, alternativt kan du bruke heroElement.remove() for å fjerne det helt
-    }
+    }                                                                     // Avslutter if setningen
+    
     updateHeroHealthTxt(hero);                                            // Kaller "updateHeroHealthTxt" funksjonen for å oppdatere brukergrensesnittet med den døde heltens oppdaterte helsetall
 
     if (heroesArray.every(h => !h.alive)) {                               // Sjekker om alle heltene i "heroesArray" er døde. Dette gjøres ved å bruke "every" metoden for å sjekke om "alive" propertyen er "false" for alle heltene
         alert("Game over! Alle helter er døde.");                         // Viser en "alert" melding om at alle helter er døde og spillet er over
                                                                           // Ytterligere handlinger kan legges til her, for eksempel å vise en 'Spill igjen'-knapp eller lignende
-    }
-}
+    }                                                                     // Avslutter if setningen
+}                                                                         // Avslutter "handleHeroDeath" funksjonen
+  }                                                                       // Avslutter "dragonAttack" funksjonen
+  });                                                                     // Avslutter "forEach" løkken for heltene
 
   function attackHero(hero) {                                             // Starter definisjonen av "attackHero-funksjonen som håndterer logikken når en helt angriper dragen"                                    
     if (hero.currentHP <= 0) {                                            // Etter heltenes angrep, sjekker vi om heltenes nåværende helse er 0 eller mindre. Dette
