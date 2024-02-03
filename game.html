@@ -9,105 +9,110 @@
   <!-- HTML KODEN TRENGER DU IKKE RØRE FOR Å LØSE OPPGAVENE. -->
 
   <body>
-    <div class="main-container">
-      <!-- Healthbars til heroene -->
-      <div class="hero-health-containers">
-        <div class="healthbar-container">
-          <!-- healer-health sin vidde må forandres for å endre lifebar -->
-          <div class="healthbar healer-health"></div>
-          <div class="text-container">
-            <p id="healer-name-txt">Healerens navn</p>
-            <p id="healer-health-txt">400 / 400 HP</p>
+    <div class="main-container">                                                            <!-- Container for hele spillet -->
+                                                                                            <!-- Healthbars til heroene -->
+      <div class="hero-health-containers">                                                  <!-- Container for alle heltene -->
+        <div class="healthbar-container">                                                   <!-- Container for hver enkelt helt -->
+                                                                                            <!-- healer-health sin vidde må forandres for å endre lifebar -->
+          <div class="healthbar healer-health"></div>                                       <!-- Lifebar for healer -->
+          <div class="text-container">                                                      <!-- Container for teksten som viser heltens navn og helse -->
+            <p id="healer-name-txt">Healerens navn</p>                                      <!-- Legger til en id for hver helt -->
+            <p id="healer-health-txt">400 / 400 HP</p>                                      <!-- Legger til en id for hver helt -->
           </div>
         </div>
-        <div class="healthbar-container">
-          <!-- archer-health sin vidde må forandres for å endre lifebar -->
-          <div class="healthbar archer-health"></div>
-          <div class="text-container">
-            <p id="archer-name-txt">Archerens navn</p>
-            <p id="archer-health-txt">600 / 600 HP</p>
+        <div class="healthbar-container">                                                   <!-- Container for hver enkelt helt -->
+                                                                                            <!-- archer-health sin vidde må forandres for å endre lifebar -->
+          <div class="healthbar archer-health"></div>                                       <!-- Lifebar for archer -->
+          <div class="text-container"><1>                                                   <!-- Container for teksten som viser heltens navn og helse -->
+            <p id="archer-name-txt">Archerens navn</p>                                      <!-- Legger til en id for hver helt -->
+            <p id="archer-health-txt">600 / 600 HP</p>                                      <!-- Legger til en id for hver helt -->
           </div>
         </div>
-        <div class="healthbar-container">
-          <!-- warrior-health sin vidde må forandres for å endre lifebar -->
-          <div class="healthbar warrior-health"></div>
-          <div class="text-container">
-            <p id="warrior-name-txt">Warriorens navn</p>
-            <p id="warrior-health-txt">800 / 800 HP</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Healthbar til fienden -->
-      <div class="dragon-health-container">
-        <div class="healthbar-container">
-          <!-- dragon-health sin vidde må forandres for å endre lifebar -->
-          <div class="healthbar dragon-health"></div>
-          <div class="text-container">
-            <p id="dragon-name-txt">Dragens navn</p>
-            <div class="text-container dragon-health-txt">2000 / 2000 HP</div>
+        <div class="healthbar-container">                                                   <!-- Container for hver enkelt helt -->
+                                                                                            <!-- warrior-health sin vidde må forandres for å endre lifebar -->
+          <div class="healthbar warrior-health"></div>                                      <!-- Lifebar for warrior -->
+          <div class="text-container">                                                      <!-- Container for teksten som viser heltens navn og helse -->
+            <p id="warrior-name-txt">Warriorens navn</p>                                    <!-- Legger til en id for hver helt -->
+            <p id="warrior-health-txt">800 / 800 HP</p>                                     <!-- Legger til en id for hver helt -->
           </div>
         </div>
       </div>
 
-      <!-- Bildecontainere for heroene -->
-      <div class="img-container healer" id="0"> <!--Legger til en id for hver helt -->
-        <img class="hero" src="assets/healer.png" />
-      </div>
-      <div class="img-container archer" id="1"> <!--Legger til en id for hver helt -->
-        <img class="hero" src="assets/archer.png" />
-      </div>
-      <div class="img-container warrior" id="2"> <!--Legger til en id for hver helt -->
-        <img class="hero" src="assets/warrior.png" />
-      </div>
+                                                                                            <!-- Healthbar til fienden -->
+      <div class="dragon-health-container">                                                 <!-- Container for dragen -->
+                                                                                            <!-- dragon-health sin vidde må forandres for å endre lifebar -->
+        <div class="healthbar-container">                                                   <!-- Container for dragen -->
+                                                                                            <!-- dragon-health sin vidde må forandres for å endre lifebar -->
+                                                                                            <!-- dragon-health sin vidde må forandres for å endre lifebar -->
+          <div class="healthbar dragon-health"></div>                                       <!-- Lifebar for dragen -->
+          <div class="text-container">                                                      <!-- Container for teksten som viser dragens navn og helse -->
+            <p id="dragon-name-txt">Dragens navn</p>                                        <!-- Legger til en id for hver helt -->
+            <div class="text-container dragon-health-txt">2000 / 2000 HP</div>              <!-- Legger til en id for hver helt -->
+          </div>                                                                            <!-- Container for teksten som viser dragens navn og helse -->
+        </div>                                                                              <!-- Container for dragen -->
+      </div>                                                                                <!-- Container for dragen -->
 
-      <!-- Bildecontainer for fienden -->
-      <div class="enemy-container">
-        <div class="img-container dragon-container">
-          <img class="dragon" src="assets/dragon.png" />
-        </div>
-      </div>
-    </div>
+                                                                                            <!-- Bildecontainere for heroene -->
+      <div class="img-container healer" id="0">                                             <!--Legger til en id for hver helt -->
+        <img class="hero" src="assets/healer.png" />                                        <!-- Legger til en id for hver helt -->
+      </div>                                                                                <!-- Bildecontainer for healer -->
+                                                                                            <!-- Bildecontainer for archer -->
+      <div class="img-container archer" id="1">                                             <!--Legger til en id for hver helt -->
+        <img class="hero" src="assets/archer.png" />                                        <!-- Legger til en id for hver helt -->
+      </div>                                                                                <!-- Bildecontainer for archer -->
+                                                                                            <!-- Bildecontainer for warrior -->
+      <div class="img-container warrior" id="2">                                            <!--Legger til en id for hver helt -->
+        <img class="hero" src="assets/warrior.png" />                                       <!-- Legger til en id for hver helt -->
+      </div>                                                                                <!-- Bildecontainer for warrior -->
+
+                                                                                            <!-- Bildecontainer for fienden -->
+      <div class="enemy-container">                                                         <!-- Container for dragen -->
+        <div class="img-container dragon-container">                                        <!-- Container for dragen -->
+                                                                                            <!-- Bildecontainer for dragen -->
+          <img class="dragon" src="assets/dragon.png" />                                    <!-- Legger til en id for hver helt -->
+        </div>                                                                              <!-- Bildecontainer for dragen -->
+      </div>                                                                                <!-- Container for dragen -->
+    </div>                                                                                  <!-- Container for hele spillet -->
 
 
     <script>
       
-      //Denne JS-koden er laget klar for deg. Den trenger du ikke endre på.
+                                                                                            // Denne JS-koden er laget klar for deg. Den trenger du ikke endre på.
 
-      //Stats for heroes
-      let heroesArray = [
+                                                                                            // Stats for heroes
+      let heroesArray = [                                                                   // Array med heltene
         {
-          id: 0,                    // ID for helt
-          name: "Henriette Healer", // Nav på helt
-          maxHP: 400,               // Maks helse på helt
-          currentHP: 400,           // Nåværende helse på helt
-          damage: 100,              // Skade helt gjør på dragen
-          alive: true,              // Hvis helt er død, skal denne være false    
-        },
-        {
-          id: 1,                  // ID for helt 
-          name: "Ariana archer",  // Nav på helt
-          maxHP: 500,             // Maks helse på helt
-          currentHP: 500,         // Nåværende helse på helt
-          damage: 400,            // Skade helt gjør på dragen   
-          alive: true,            // Hvis helt er død, skal denne være false
-        },
-        {
-          id: 2,                  // ID for helt
-          name: "Wyona Warrior",  // Nav på helt
-          maxHP: 600,             // Maks helse på helt
-          currentHP: 600,         // Nåværende helse på helt
-          damage: 400,            // Skade helt gjør på dragen
-          alive: true,            // Hvis helt er død, skal denne være false
-        },
+          id: 0,                                                                            // ID for helt
+          name: "Henriette Healer",                                                         // Nav på helt
+          maxHP: 400,                                                                       // Maks helse på helt
+          currentHP: 400,                                                                   // Nåværende helse på helt
+          damage: 100,                                                                      // Skade helt gjør på dragen
+          alive: true,                                                                      // Hvis helt er død, skal denne være false    
+        },                                                                                  // Helt 1
+        {                                                                                   // Helt 2
+          id: 1,                                                                            // ID for helt 
+          name: "Ariana Archer",                                                            // Nav på helt
+          maxHP: 500,                                                                       // Maks helse på helt
+          currentHP: 500,                                                                   // Nåværende helse på helt
+          damage: 400,                                                                      // Skade helt gjør på dragen   
+          alive: true,                                                                      // Hvis helt er død, skal denne være false
+        },                                                                                  // Helt 2
+        {                                                                                   // Helt 3
+          id: 2,                                                                            // ID for helt
+          name: "Wyona Warrior",                                                            // Nav på helt
+          maxHP: 600,                                                                       // Maks helse på helt
+          currentHP: 600,                                                                   // Nåværende helse på helt
+          damage: 400,                                                                      // Skade helt gjør på dragen
+          alive: true,                                                                      // Hvis helt er død, skal denne være false
+        },                                                                                  // Helt 3
       ];
 
-      let dragonObject = {        // Stats for dragon
-        name: "Daar Dragon",      // Navn på dragen
-        maxHP: 2000,              // Maks helse på dragen
-        currentHP: 2000,          // Nåværende helse på dragen
-        damage: 200,              // Skade dragen gjør på heltene
-        alive: true,              // Hvis dragen er død, skal denne være false
+      let dragonObject = {                                                                  // Stats for dragon
+        name: "Daar Dragon",                                                                // Navn på dragen
+        maxHP: 2000,                                                                        // Maks helse på dragen
+        currentHP: 2000,                                                                    // Nåværende helse på dragen
+        damage: 200,                                                                        // Skade dragen gjør på heltene
+        alive: true,                                                                        // Hvis dragen er død, skal denne være false
       };
 
                                                                                                       // Funksjonskrav 1 
@@ -121,7 +126,7 @@
                                                                                                       // dragen
   document.addEventListener(`DOMContentLoaded`, (event) => {                                          // Legger til en event listener som venter på at alle dokumentet(HTML) skal være ferdig lastet.Dette sikrer at all HTML er lastet inn før scriptet kjøres
   const dragonHealthTxT = document.querySelector(`.dragon-health-txt`);                               // Henter referansen til elementet som viser dragens nåværende helse,slik at teksten kan oppdateres senere når dragen tar skade
-        
+       
   function attackHero(hero) {                                                                         // Definerer en funksjon "attackHero" som håndterer logikken når en helt angriper dragen
     
     if (!dragonObject.alive || !hero.alive) {                                                         // Sjekker om dragen eller helten er død. Hvis død, helten ikke angripe
@@ -143,7 +148,7 @@
           dragonAttack();                              
         }                                                                                             // Lukker if-else - blokken
       }                                                                                               // Lukker "attackHero" funksjonen                                                     
-  });                                                                                              // Lukker "DOMContentLoaded" event listeneren
+  });                                                                                                 // Lukker "DOMContentLoaded" event listeneren
 
     heroesArray.forEach(hero => {                                                                     // Går gjennom hvert "hero" objekt i "heroesArray" med "forEach" metoden
       const heroElement = document.getElementById(hero.name.toLowerCase().replace(` `, `-`));         // Henter DOM elementet for hver helt basert på heltens navn. Dette er gjort ved å bruke heltens navn til å finne elementet i HTML
@@ -156,7 +161,7 @@
       if (!dragonObject.alive) {                                                                      // Sjekker om dragen er død etter angrepet
         alert(`Gratulerer! Dere har vunnet!`);                                                        // Viser en melding om at helten har drept dragen
   }                                                                                                   // Lukker `checkIfDragonDead` funksjonen
-}                                                                                                  // Lukker `DOMContentLoaded - event listeneren
+}                                                                                                     // Lukker `DOMContentLoaded - event listeneren
     
                                                                                                       // Funksjonskrav 2
 
@@ -202,11 +207,11 @@ const updateHeroHealthTxt = (hero) => {                                         
       return;                                                                                             // Avslutter funksjonen tidlig hvis heltens navn ikke ble gjenkjent
   }                                                                                                       // Avslutter "switch" setningen
 
-  const heroHealthElement = document.getElementById(heroHealthId);
-  if (heroHealthElement) {
-    heroHealthElement.textContent = `${hero.currentHP} / ${hero.maxHP} HP`;
-  }
-};
+  const heroHealthElement = document.getElementById(heroHealthId);                                        // Henter referansen til elementet som viser heltenes nåværende helse, slik at teksten kan oppdateres senere når helten tar skade
+  if (heroHealthElement) {                                                                                // Sjekker om elementet faktisk finnes før det oppdateres
+    heroHealthElement.textContent = `${hero.currentHP} / ${hero.maxHP} HP`;                               // Setter innholdet av det valgte elementet (som viser heltenes helse) til å vise heltenes nåværende helse sammenlignet med maks helse
+  }                                                                                                       // Avslutter if setningen
+};                                                                                                        // Avslutter "updateHeroHealthTxt" funksjonen
 
   function dragonAttack() {                                                                           // Definerer en funksjon "dragonAttack" som håndterer logikken for dragens angrep
     const aliveHeroes = heroesArray.filter((hero) => hero.alive);                                     // Lager en ny array "aliveHeroes" som inneholder alle helter som er i live
@@ -253,7 +258,7 @@ const updateHeroHealthTxt = (hero) => {                                         
   //const updateHeroHealthTxt = (hero) => {                                                           // Definerer en arrow funksjon "updateHeroHealthTxt" som tar en "hero" som argument.
                                                                                                       // Denne funksjonen vil være ansvarlig for å oppdatere heltenes helsevisning i brukergrensesnittet.
   //document.querySelector(`${hero.id}healer-health-txt`).textContent = `${hero.currentHP} / ${hero.maxHP} HP`;
-    //};                                                                                              // Setter innholdet av det valgte elementet (som viser heltenes 
+   // };                                                                                              // Setter innholdet av det valgte elementet (som viser heltenes 
                                                                                                       // helse) til å vise heltenes nåværende helse sammenlignet med maks helse
   const removeDeadHero = (hero) => {                                                                  // Definerer en ny funksjon "removeDeadHero", som også tar en "hero" som argument. 
                                                                                                       // Denne funksjonen vil fjerne den visuelle representasjonen av helten fra nettleseren når helten er død.
@@ -267,9 +272,9 @@ const updateHeroHealthTxt = (hero) => {                                         
   function dragonAttack() {                                               // Starter definisjonen av "dragonAttack-funksjonen som håndterer logikken for dragens angrep"
     const dragonDamage = 20;                                              // Setter "dragonDamage" til 20. Dette er den skaden som dragen vil gjøre på helten
   
-    heroesArray.forEach(hero => {                                          // Looper igjennom helgene. Går igjennom hver helt i arrayet "herosArray". For hver "hero" i arrayet, utføres koden innenfor "{}"
-      if (hero.alive) {                                                     // Sjekker om helten lever. Utfører angrepet bare hvis "hero.alive" er "true" (det vil si at helten fortsatt er i live)
-        hero.currentHP -= dragonDamage;                                     // Beregner skade på helten: Trekker skaden ("dragonDamage") fra heltenes nåværende helse ("hero.currentHP")
+    heroesArray.forEach(hero => {                                         // Looper igjennom helgene. Går igjennom hver helt i arrayet "herosArray". For hver "hero" i arrayet, utføres koden innenfor "{}"
+      if (hero.alive) {                                                   // Sjekker om helten lever. Utfører angrepet bare hvis "hero.alive" er "true" (det vil si at helten fortsatt er i live)
+        hero.currentHP -= dragonDamage;                                   // Beregner skade på helten: Trekker skaden ("dragonDamage") fra heltenes nåværende helse ("hero.currentHP")
       if ((hero.currentHP) <= 0) {                                        // Sjekker om helten er død. Hvis helten er død, vil "hero.currentHP" være 0 eller mindre
         hero.currentHP = 0;                                               // Markerer helten som død. Setter heltenes "currentHP" til 0 for å unngå negative verdier.
         hero.alive = false;                                               // "Alive" til false for å indikere at helten er død.
@@ -288,7 +293,7 @@ const updateHeroHealthTxt = (hero) => {                                         
     if (heroesArray.every(h => !h.alive)) {                               // Sjekker om alle heltene i "heroesArray" er døde. Dette gjøres ved å bruke "every" metoden for å sjekke om "alive" propertyen er "false" for alle heltene
         alert("Game over! Alle helter er døde.");                         // Viser en "alert" melding om at alle helter er døde og spillet er over
                                                                           // Ytterligere handlinger kan legges til her, for eksempel å vise en 'Spill igjen'-knapp eller lignende
-    }                                                                     // Avslutter if setningen
+  }                                                                       // Avslutter if setningen
 }                                                                         // Avslutter "handleHeroDeath" funksjonen
   }                                                                       // Avslutter "dragonAttack" funksjonen
   });                                                                     // Avslutter "forEach" løkken for heltene
@@ -312,6 +317,58 @@ const updateHeroHealthTxt = (hero) => {                                         
                                                                             // Når helten klikkes på, vil "attackHero" funksjonen 
                                                                             // bli kalt med den aktuelle helten som argument.
       });                                                                   // Avslutter "Foreach" løkken for heltene
+
+  //});                                                                     // Avslutter "DOMContentLoaded" event listeneren
+
+
+                                                                            // Funksjonskrav 4
+                                                                            // Lag js kode for game.hmtl filen av denne beskrivelsen:Spillet er tapt!
+                                                                            // Dersom alle heltene er døde og dragen har en currentHP over 0, er spillet tapt. Alle heltene skal nå være borte fra skjermen.
+                                                                            // En alert skal dukke opp hvor det står:
+                                                                            // “Spillet er tapt! (Dragens name) har vunnet!”
+
+function checkGameOver() {                                           
+
+    const allHeroesDead = heroesArray.every((hero) => !hero.alive);     // Sjekker om alle heltene er døde. Hvis alle heltene er døde, vil "hero.alive" være "false" for alle heltene.
+                                                    
+    const dragonAlive = dragonObject.currentHP > 0;                     // Sjekker om dragen fortsatt er i live. Hvis dragen er død, vil "dragonObject.currentHP" være 0 eller mindre.
+                            
+
+  if (allHeroesDead && dragonAlive) {                                   // Fjerner alle helter fra skjermen
+    heroesArray.forEach((hero) => {                                     // Går igjennom alle heltene i arrayet "heroesArray" med "forEach" 
+      const heroElement = document.getElementById(hero.id);             // Henter DOM elementet for hver helt ved hjelp av heltenes unike id.
+      if (heroElement) {                                                // Sjekker om elementet faktisk finnes før det fjernes fra DOM (Document Object Model)
+        heroElement.style.display = "none";                             // Dette hindrer feil hvis elementet allerede er fjernet eller ikke finnes
+      }                                                                 // Avslutter if setningen
+    });                                                                 // Avslutter "forEach" løkken for heltene
+                                                                        // Viser en alert-melding om at spillet er tapt
+    alert(`Spillet er tapt! ${dragonObject.name} har vunnet!`);         // Viser en alert-melding om at spillet er tapt
+  }                                                                     // Avslutter "if" setningen
+}                                                                       // Avslutter "checkGameOver" funksjonen
+
+
+                                                                        // Funksjonskrav 5
+                                                                        // Spillet er vunnet!
+                                                                        // - Dersom dragens currentHP blir 0 eller mindre, har helten(e) vunnet spillet!
+                                                                        // - Dragen skal forsvinne fra nettleseren
+                                                                        // - En alert skal dukke opp:
+                                                                        // “Gratulerer, du har vunnet spillet!”
+
+function checkIfGameIsWon() {                                   // Sjekker om spillet er vunnet. Sjekker om dragens helsepoeng er 0 eller mindre
+  if (dragonObject.currentHP <= 0) {                               // Sjekker om dragens helsepoeng er 0 eller mindre
+    const dragonElement = document.getElementById("dragon");    // Anta at dragen har en ID 'dragon'. Henter DOM elementet for dragen ved hjelp av dragenes unike id.
+    if (dragonElement) {                                        // Sjekker om elementet faktisk finnes før det fjernes fra DOM (Document Object Model)
+      dragonElement.remove();                                   // Dette hindrer feil hvis elementet allerede er fjernet eller ikke finnes
+    }                                                           // Avslutter if setningen
+    alert("Gratulerer, du har vunnet spillet!");                // Viser en alert-melding om at spillet er vunnet
+  }                                                             // Avslutter "if" setningen
+}  
+
+
+
+
+
+
     </script>
   </body> 
 </html>
