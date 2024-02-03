@@ -53,15 +53,15 @@
       </div>                                                                                <!-- Container for dragen -->
 
                                                                                             <!-- Bildecontainere for heroene -->
-      <div class="img-container healer" id="0">                                             <!--Legger til en id for hver helt -->
+      <div class="img-container healer">                                             <!--Legger til en id for hver helt -->
         <img class="hero" src="assets/healer.png" />                                        <!-- Legger til en id for hver helt -->
       </div>                                                                                <!-- Bildecontainer for healer -->
                                                                                             <!-- Bildecontainer for archer -->
-      <div class="img-container archer" id="1">                                             <!--Legger til en id for hver helt -->
+      <div class="img-container archer">                                             <!--Legger til en id for hver helt -->
         <img class="hero" src="assets/archer.png" />                                        <!-- Legger til en id for hver helt -->
       </div>                                                                                <!-- Bildecontainer for archer -->
                                                                                             <!-- Bildecontainer for warrior -->
-      <div class="img-container warrior" id="2">                                            <!--Legger til en id for hver helt -->
+      <div class="img-container warrior">                                                   <!--Legger til en id for hver helt -->
         <img class="hero" src="assets/warrior.png" />                                       <!-- Legger til en id for hver helt -->
       </div>                                                                                <!-- Bildecontainer for warrior -->
 
@@ -78,7 +78,6 @@
     <script>
       
                                                                                             // Denne JS-koden er laget klar for deg. Den trenger du ikke endre på.
-
                                                                                             // Stats for heroes
       let heroesArray = [                                                                   // Array med heltene
         {
@@ -178,7 +177,7 @@
   //const dragonHealthTxt = document.querySelector(".dragon-health-txt");                             // Henter referansen til elementet som viser dragens nåværende helse, slik at teksten kan oppdateres senere når dragen tar skade
  
   //const updateHeroHealthTxt = (hero) => {                                                                      // Definerer en arrow function "updateHeroHealthTxt" som tar en "hero" object som argument. Denne funksjonen
-    //document.querySelector(`#${hero.id}-health-txt`).textContent = `${hero.currentHP} / ${hero.maxHP} HP`;     // Setter innholdet av det valgte elementet (som viser heltenes helse) til å vise heltenes nåværende helse sammenlignet med maks helse
+  //document.querySelector(`#${hero.id}-health-txt`).textContent = `${hero.currentHP} / ${hero.maxHP} HP`;     // Setter innholdet av det valgte elementet (som viser heltenes helse) til å vise heltenes nåværende helse sammenlignet med maks helse
   //};                                                                                                           // Avslutter "updateHeroHealthTxt" funksjonen
                                                                                                       
   // const updateHeroHealthTxt = (hero) => {                                                             // Definerer en arrow funksjon "updateHeroHealthTxt" som tar en "hero" som argument. Denne funksjonen vil være ansvarlig for å oppdatere heltenes helsevisning i brukergrensesnittet.
@@ -189,29 +188,50 @@
   // }                                                                                                   // Avslutter if setningen
 // };                                                                                                    // Avslutter "updateHeroHealthTxt" funksjonen
 
-const updateHeroHealthTxt = (hero) => {                                                                   // Definerer en arrow funksjon "updateHeroHealthTxt" som tar en "hero" som argument. Denne funksjonen vil være ansvarlig for å oppdatere heltenes helsevisning i brukergrensesnittet.
-  let heroHealthId;                                                                                       // Deklarerer en variabel "heroHealthId" som vil inneholde IDen til elementet som viser heltenes helse
+// const updateHeroHealthTxt = (hero) => {                                                                   // Definerer en arrow funksjon "updateHeroHealthTxt" som tar en "hero" som argument. Denne funksjonen vil være ansvarlig for å oppdatere heltenes helsevisning i brukergrensesnittet.
+  // let heroHealthId;                                                                                       // Deklarerer en variabel "heroHealthId" som vil inneholde IDen til elementet som viser heltenes helse
   
-  switch (hero.name) {                                                                                    // Bruker en "switch" setning for å velge riktig ID basert på heltens navn
-    case "Henriette Healer":                                                                              // Hvis heltens navn er "Henriette Healer"
-      heroHealthId = "healer-health-txt";                                                                 // Setter "heroHealthId" til "healer-health-txt"
-      break;                                                                                              // Avslutter "case" setningen
-    case "Ariana Archer":                                                                                 // Hvis heltens navn er "Ariana Archer"
-      heroHealthId = "archer-health-txt";                                                                 // Setter "heroHealthId" til "archer-health-txt"
-      break;                                                                                              // Avslutter "case" setningen
-    case "Wyona Warrior":                                                                                 // Hvis heltens navn er "Wyona Warrior"
-      heroHealthId = "warrior-health-txt";                                                                // Setter "heroHealthId" til "warrior-health-txt"
-      break;                                                                                              // Avslutter "case" setningen
-    default:                                                                                              // Hvis heltens navn ikke er noen av de ovennevnte
-      console.error("Ukjent helt: " + hero.name);                                                         // Skriver en feilmelding til konsollen for å indikere at heltens navn ikke ble gjenkjent
-      return;                                                                                             // Avslutter funksjonen tidlig hvis heltens navn ikke ble gjenkjent
-  }                                                                                                       // Avslutter "switch" setningen
+  //switch (hero.name) {                                                                                    // Bruker en "switch" setning for å velge riktig ID basert på heltens navn
+    //case "Henriette Healer":                                                                              // Hvis heltens navn er "Henriette Healer"
+      //heroHealthId = "healer-health-txt";                                                                 // Setter "heroHealthId" til "healer-health-txt"
+      //break;                                                                                              // Avslutter "case" setningen
+    //case "Ariana Archer":                                                                                 // Hvis heltens navn er "Ariana Archer"
+      //heroHealthId = "archer-health-txt";                                                                 // Setter "heroHealthId" til "archer-health-txt"
+      //break;                                                                                              // Avslutter "case" setningen
+    //case "Wyona Warrior":                                                                                 // Hvis heltens navn er "Wyona Warrior"
+      //heroHealthId = "warrior-health-txt";                                                                // Setter "heroHealthId" til "warrior-health-txt"
+      //break;                                                                                              // Avslutter "case" setningen
+    //default:                                                                                              // Hvis heltens navn ikke er noen av de ovennevnte
+      //console.error("Ukjent helt: " + hero.name);                                                         // Skriver en feilmelding til konsollen for å indikere at heltens navn ikke ble gjenkjent
+      //return;                                                                                             // Avslutter funksjonen tidlig hvis heltens navn ikke ble gjenkjent
+  //}                                                                                                       // Avslutter "switch" setningen
 
+function updateHeroHealthTxt(hero) {
+  // Objekt som mapper heltenes navn til deres tilsvarende health text IDer
+  const heroHealthIds = {
+    "Henriette Healer": "healer-health-txt",
+    "Ariana Archer": "archer-health-txt",
+    "Wyona Warrior": "warrior-health-txt"
+  };
+
+  // Finner IDen basert på heltens navn
+  const heroHealthId = heroHealthIds[hero.name];
+  if (!heroHealthId) {
+    console.error("Ukjent helt: " + hero.name);
+    return;
+  }
+
+  // Oppdaterer heltenes helsevisning i brukergrensesnittet
+  const heroHealthElement = document.getElementById(heroHealthId);
+  if (heroHealthElement) {
+    heroHealthElement.textContent = `${hero.currentHP} / ${hero.maxHP} HP`;
+  }
+}
   const heroHealthElement = document.getElementById(heroHealthId);                                        // Henter referansen til elementet som viser heltenes nåværende helse, slik at teksten kan oppdateres senere når helten tar skade
   if (heroHealthElement) {                                                                                // Sjekker om elementet faktisk finnes før det oppdateres
     heroHealthElement.textContent = `${hero.currentHP} / ${hero.maxHP} HP`;                               // Setter innholdet av det valgte elementet (som viser heltenes helse) til å vise heltenes nåværende helse sammenlignet med maks helse
   }                                                                                                       // Avslutter if setningen
-};                                                                                                        // Avslutter "updateHeroHealthTxt" funksjonen
+//};                                                                                                        // Avslutter "updateHeroHealthTxt" funksjonen
 
   function dragonAttack() {                                                                           // Definerer en funksjon "dragonAttack" som håndterer logikken for dragens angrep
     const aliveHeroes = heroesArray.filter((hero) => hero.alive);                                     // Lager en ny array "aliveHeroes" som inneholder alle helter som er i live
@@ -364,7 +384,21 @@ function checkIfGameIsWon() {                                   // Sjekker om sp
   }                                                             // Avslutter "if" setningen
 }  
 
+const heroHealthIdMap = {
+  "Henriette Healer": "healer-health-txt",
+  "Ariana Archer": "archer-health-txt",
+  "Wyona Warrior": "warrior-health-txt"
+};
 
+const updateHeroHealthTxt = (hero) => {
+  const heroHealthId = heroHealthIdMap[hero.name];
+  if (heroHealthId) {
+    const heroHealthElement = document.getElementById(heroHealthId);
+    heroHealthElement.textContent = `${hero.currentHP} / ${hero.maxHP} HP`;
+  } else {
+    console.error("Ukjent helt: " + hero.name);
+  }
+};
 
 
 
