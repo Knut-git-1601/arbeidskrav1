@@ -128,8 +128,8 @@
     const aliveHeroes = heroesArray.filter(hero => hero.alive);                                         // Finner alle helter som er i live
     if (aliveHeroes.length === 0) {                                                                     // Sjekker om det er noen helter igjen å angripe
       alert('Det er ingen helter igjen å angripe!');                                                    // Viser en melding om at det ikke er noen helter igjen å angripe
-      return;                                                                                           // Avslutter funksjonen tidlig ved å bruke `return`                                         // Avslutter funksjonen tidlig ved å bruke `return`
-    }                                                                                                     // Lukker if-setningen
+      return;                                                                                           // Avslutter funksjonen tidlig ved å bruke `return`                                         
+    }                                                                                                   // Lukker if-setningen
     const targetHero = aliveHeroes[Math.floor(Math.random() * aliveHeroes.length)];                     // Velger en tilfeldig helt fra "aliveHeroes" arrayet
     targetHero.currentHP -= dragonObject.damage;                                                        // Trekker skaden ("dragonObject.damage") fra heltens nåværende helse ("targetHero.currentHP")
     if (targetHero.currentHP <= 0) {                                                                    // Sjekker om helten er død
